@@ -5,6 +5,10 @@ import { HTTP_STATUS, ERROR_MESSAGES } from '../constants';
 import { ParserService, ParsedPage } from './parser.service';
 import { WebsiteService } from './website.service';
 import { PageService } from './page.service';
+import { ChunkService } from './chunk.service';
+import { EmbeddingService } from './embedding.service';
+import { VectorStoreService } from './vectorStore.service';
+import { Page } from '../models/Page.model';
 
 export interface CrawledPage {
   url: string;
@@ -104,7 +108,40 @@ export const crawlUrl = async (startUrl: string): Promise<CrawlResult> => {
   }
 
   // Persist pages to the database
-  const storedPagesCount = await PageService.bulkSavePages(websiteId, parsedPages);
+  let storedPagesCount = 0;
+  try {
+    storedPagesCount = await PageService.bulkSavePages(websiteId, parsedPages);
+
+    // Fetch the saved pages to get their pageIds for chunking
+    const savedPages = await Page.find({ websiteId }).select('_id url title content');
+
+    // Convert to ChunkService's ParsedPage format
+    const chunkablePages = savedPages.map(p => ({
+      pageId: (p._id as any).toString(),
+      websiteId,
+      url: p.url,
+      title: p.title,
+      content: p.content,
+    }));
+
+    console.log('Starting chunk generation...');
+    const chunks = await ChunkService.chunkPages(chunkablePages);
+    console.log(`Generated ${chunks.length} chunks.`);
+
+    console.log('Generating embeddings...');
+    const embeddedChunks = await EmbeddingService.generateEmbeddings(chunks);
+    console.log(`Generated ${embeddedChunks.length} embeddings.`);
+
+    console.log('Saving embeddings...');
+    await VectorStoreService.storeChunks(embeddedChunks);
+    console.log(`Stored ${embeddedChunks.length} chunks in website_chunks.`);
+    
+    console.log('RAG ingestion completed successfully.');
+  } catch (error: any) {
+    console.error(`[CrawlService] RAG Ingestion pipeline failed for website ${websiteId}:`, error);
+    await WebsiteService.finalizeWebsiteCrawl(websiteId, 'failed');
+    throw new ApiError(HTTP_STATUS.INTERNAL_SERVER_ERROR, `RAG Ingestion pipeline failed: ${error.message}`);
+  }
 
   // Update website status to completed
   await WebsiteService.finalizeWebsiteCrawl(websiteId, 'completed', crawledPages.length, storedPagesCount);

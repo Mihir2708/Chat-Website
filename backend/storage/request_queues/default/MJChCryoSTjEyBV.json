@@ -1,0 +1,9 @@
+{
+	"id": "MJChCryoSTjEyBV",
+	"json": "{\"id\":\"MJChCryoSTjEyBV\",\"url\":\"https://tailwindcss.com/showcase\",\"loadedUrl\":\"https://tailwindcss.com/showcase\",\"uniqueKey\":\"https://tailwindcss.com/showcase\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"crawlDepth\":1,\"enqueueStrategy\":\"same-domain\",\"state\":4}},\"handledAt\":\"2026-07-10T10:28:08.614Z\"}",
+	"method": "GET",
+	"orderNo": null,
+	"retryCount": 0,
+	"uniqueKey": "https://tailwindcss.com/showcase",
+	"url": "https://tailwindcss.com/showcase"
+}

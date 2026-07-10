@@ -1,0 +1,9 @@
+{
+	"id": "MQscb4JhS302Is8",
+	"json": "{\"id\":\"MQscb4JhS302Is8\",\"url\":\"https://tailwindcss.com/docs\",\"loadedUrl\":\"https://tailwindcss.com/docs/installation/using-vite\",\"uniqueKey\":\"https://tailwindcss.com/docs\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"crawlDepth\":1,\"enqueueStrategy\":\"same-domain\",\"state\":4}},\"handledAt\":\"2026-07-10T10:28:09.486Z\"}",
+	"method": "GET",
+	"orderNo": null,
+	"retryCount": 0,
+	"uniqueKey": "https://tailwindcss.com/docs",
+	"url": "https://tailwindcss.com/docs"
+}
