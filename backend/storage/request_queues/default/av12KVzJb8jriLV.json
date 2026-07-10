@@ -1,0 +1,9 @@
+{
+	"id": "av12KVzJb8jriLV",
+	"json": "{\"id\":\"av12KVzJb8jriLV\",\"url\":\"https://nextjs.org/docs/app/getting-started/project-structure\",\"loadedUrl\":\"https://nextjs.org/docs/app/getting-started/project-structure\",\"uniqueKey\":\"https://nextjs.org/docs/app/getting-started/project-structure\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"crawlDepth\":1,\"enqueueStrategy\":\"same-domain\",\"state\":4}},\"handledAt\":\"2026-07-10T07:23:23.041Z\"}",
+	"method": "GET",
+	"orderNo": null,
+	"retryCount": 0,
+	"uniqueKey": "https://nextjs.org/docs/app/getting-started/project-structure",
+	"url": "https://nextjs.org/docs/app/getting-started/project-structure"
+}

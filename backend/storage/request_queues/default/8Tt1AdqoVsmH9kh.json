@@ -1,0 +1,9 @@
+{
+	"id": "8Tt1AdqoVsmH9kh",
+	"json": "{\"id\":\"8Tt1AdqoVsmH9kh\",\"url\":\"https://nextjs.org/docs/app/getting-started/caching\",\"loadedUrl\":\"https://nextjs.org/docs/app/getting-started/caching\",\"uniqueKey\":\"https://nextjs.org/docs/app/getting-started/caching\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"crawlDepth\":1,\"enqueueStrategy\":\"same-domain\",\"state\":4}},\"handledAt\":\"2026-07-10T07:23:24.041Z\"}",
+	"method": "GET",
+	"orderNo": null,
+	"retryCount": 0,
+	"uniqueKey": "https://nextjs.org/docs/app/getting-started/caching",
+	"url": "https://nextjs.org/docs/app/getting-started/caching"
+}

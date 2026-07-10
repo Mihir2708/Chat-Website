@@ -20,7 +20,7 @@ if (config.env === 'development') {
 }
 
 // Routes
-app.use('/api/v1', routes);
+app.use('/api', routes);
 
 // Health check
 app.get('/health', (req, res) => {
