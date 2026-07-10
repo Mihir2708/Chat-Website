@@ -3,6 +3,8 @@ import config from '../config';
 import { ApiError } from '../utils/ApiError';
 import { HTTP_STATUS, ERROR_MESSAGES } from '../constants';
 import { ParserService, ParsedPage } from './parser.service';
+import { WebsiteService } from './website.service';
+import { PageService } from './page.service';
 
 export interface CrawledPage {
   url: string;
@@ -12,8 +14,10 @@ export interface CrawledPage {
 }
 
 export interface CrawlResult {
+  websiteId: string;
+  websiteUrl: string;
   totalPages: number;
-  pages: ParsedPage[];
+  storedPages: number;
 }
 
 const normalizeUrl = (url: string): string => {
@@ -28,6 +32,12 @@ const normalizeUrl = (url: string): string => {
 
 export const crawlUrl = async (startUrl: string): Promise<CrawlResult> => {
   const normalizedStartUrl = normalizeUrl(startUrl);
+  const domain = new URL(normalizedStartUrl).hostname;
+  
+  // Track this crawl in the database
+  const websiteDoc = await WebsiteService.createOrUpdateWebsite(normalizedStartUrl, domain);
+  const websiteId = (websiteDoc._id as any).toString();
+
   const crawledPages: CrawledPage[] = [];
 
   const crawler = new CheerioCrawler({
@@ -68,6 +78,7 @@ export const crawlUrl = async (startUrl: string): Promise<CrawlResult> => {
   try {
     await crawler.run([normalizedStartUrl]);
   } catch (error: any) {
+    await WebsiteService.finalizeWebsiteCrawl(websiteId, 'failed');
     if (error.message && error.message.includes('timeout')) {
       throw new ApiError(HTTP_STATUS.INTERNAL_SERVER_ERROR, ERROR_MESSAGES.CRAWL_TIMEOUT);
     }
@@ -75,6 +86,7 @@ export const crawlUrl = async (startUrl: string): Promise<CrawlResult> => {
   }
 
   if (crawledPages.length === 0) {
+    await WebsiteService.finalizeWebsiteCrawl(websiteId, 'failed');
     throw new ApiError(HTTP_STATUS.BAD_REQUEST, ERROR_MESSAGES.EMPTY_WEBSITE);
   }
 
@@ -87,11 +99,20 @@ export const crawlUrl = async (startUrl: string): Promise<CrawlResult> => {
   }
 
   if (parsedPages.length === 0) {
+    await WebsiteService.finalizeWebsiteCrawl(websiteId, 'failed');
     throw new ApiError(HTTP_STATUS.BAD_REQUEST, 'No parseable content found on the website.');
   }
 
+  // Persist pages to the database
+  const storedPagesCount = await PageService.bulkSavePages(websiteId, parsedPages);
+
+  // Update website status to completed
+  await WebsiteService.finalizeWebsiteCrawl(websiteId, 'completed', crawledPages.length, storedPagesCount);
+
   return {
-    totalPages: parsedPages.length,
-    pages: parsedPages,
+    websiteId,
+    websiteUrl: normalizedStartUrl,
+    totalPages: crawledPages.length,
+    storedPages: storedPagesCount,
   };
 };

@@ -68,17 +68,25 @@ export class ParserService {
    * Extracts text content based on semantic HTML5 hierarchy.
    */
   private static extractMainContent($: cheerio.CheerioAPI): string {
-    const mainContent = $('main').text();
+    // Helper function to extract text while maintaining proper spacing between block elements
+    const getSpacedText = (selector: string): string => {
+      const clone = $(selector).clone();
+      // Add spaces around block-level elements before extracting text to prevent words from running together
+      clone.find('p, div, br, h1, h2, h3, h4, h5, h6, li, td, th').prepend(' ').append(' ');
+      return clone.text();
+    };
+
+    const mainContent = getSpacedText('main');
     if (mainContent && mainContent.trim().length > 0) {
       return mainContent;
     }
 
-    const articleContent = $('article').text();
+    const articleContent = getSpacedText('article');
     if (articleContent && articleContent.trim().length > 0) {
       return articleContent;
     }
 
-    return $('body').text();
+    return getSpacedText('body');
   }
 
   /**
@@ -86,8 +94,11 @@ export class ParserService {
    */
   private static normalizeText(text: string): string {
     return text
+      .replace(/\r\n/g, '\n') // Normalize Windows newlines
       .replace(/[ \t]+/g, ' ') // Replace multiple spaces/tabs with single space
-      .replace(/\n\s*\n/g, '\n\n') // Replace multiple blank lines with double newline
-      .trim(); // Trim leading and trailing whitespace
+      .split('\n') // Split by line to trim each line individually
+      .map(line => line.trim()) // Trim whitespace from ends of lines
+      .filter(line => line.length > 0) // Remove completely empty lines
+      .join('\n\n'); // Rejoin with double newlines to form clean paragraphs
   }
 }

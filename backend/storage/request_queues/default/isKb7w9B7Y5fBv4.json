@@ -1,6 +1,6 @@
 {
 	"id": "isKb7w9B7Y5fBv4",
-	"json": "{\"id\":\"isKb7w9B7Y5fBv4\",\"url\":\"https://nextjs.org/docs/app/getting-started/linking-and-navigating\",\"loadedUrl\":\"https://nextjs.org/docs/app/getting-started/linking-and-navigating\",\"uniqueKey\":\"https://nextjs.org/docs/app/getting-started/linking-and-navigating\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"crawlDepth\":1,\"enqueueStrategy\":\"same-domain\",\"state\":4}},\"handledAt\":\"2026-07-10T07:23:23.921Z\"}",
+	"json": "{\"id\":\"isKb7w9B7Y5fBv4\",\"url\":\"https://nextjs.org/docs/app/getting-started/linking-and-navigating\",\"loadedUrl\":\"https://nextjs.org/docs/app/getting-started/linking-and-navigating\",\"uniqueKey\":\"https://nextjs.org/docs/app/getting-started/linking-and-navigating\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"crawlDepth\":1,\"enqueueStrategy\":\"same-domain\",\"state\":4}},\"handledAt\":\"2026-07-10T07:47:25.787Z\"}",
 	"method": "GET",
 	"orderNo": null,
 	"retryCount": 0,

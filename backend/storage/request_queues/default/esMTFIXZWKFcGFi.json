@@ -1,6 +1,6 @@
 {
 	"id": "esMTFIXZWKFcGFi",
-	"json": "{\"id\":\"esMTFIXZWKFcGFi\",\"url\":\"https://nextjs.org/docs/app/getting-started\",\"loadedUrl\":\"https://nextjs.org/docs/app/getting-started\",\"uniqueKey\":\"https://nextjs.org/docs/app/getting-started\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"crawlDepth\":1,\"enqueueStrategy\":\"same-domain\",\"state\":4}},\"handledAt\":\"2026-07-10T07:23:23.804Z\"}",
+	"json": "{\"id\":\"esMTFIXZWKFcGFi\",\"url\":\"https://nextjs.org/docs/app/getting-started\",\"loadedUrl\":\"https://nextjs.org/docs/app/getting-started\",\"uniqueKey\":\"https://nextjs.org/docs/app/getting-started\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"crawlDepth\":1,\"enqueueStrategy\":\"same-domain\",\"state\":4}},\"handledAt\":\"2026-07-10T07:47:25.468Z\"}",
 	"method": "GET",
 	"orderNo": null,
 	"retryCount": 0,

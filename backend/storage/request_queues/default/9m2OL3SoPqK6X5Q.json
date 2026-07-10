@@ -1,6 +1,6 @@
 {
 	"id": "9m2OL3SoPqK6X5Q",
-	"json": "{\"id\":\"9m2OL3SoPqK6X5Q\",\"url\":\"https://nextjs.org/docs/app/getting-started/server-and-client-components\",\"loadedUrl\":\"https://nextjs.org/docs/app/getting-started/server-and-client-components\",\"uniqueKey\":\"https://nextjs.org/docs/app/getting-started/server-and-client-components\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"crawlDepth\":1,\"enqueueStrategy\":\"same-domain\",\"state\":4}},\"handledAt\":\"2026-07-10T07:23:23.431Z\"}",
+	"json": "{\"id\":\"9m2OL3SoPqK6X5Q\",\"url\":\"https://nextjs.org/docs/app/getting-started/server-and-client-components\",\"loadedUrl\":\"https://nextjs.org/docs/app/getting-started/server-and-client-components\",\"uniqueKey\":\"https://nextjs.org/docs/app/getting-started/server-and-client-components\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"crawlDepth\":1,\"enqueueStrategy\":\"same-domain\",\"state\":4}},\"handledAt\":\"2026-07-10T07:47:26.056Z\"}",
 	"method": "GET",
 	"orderNo": null,
 	"retryCount": 0,
