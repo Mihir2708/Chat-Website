@@ -1,9 +1,0 @@
-{
-	"id": "wSlkVhDhMf6M7Hy",
-	"json": "{\"id\":\"wSlkVhDhMf6M7Hy\",\"url\":\"https://tailwindcss.com/plus/ui-blocks?ref=footer\",\"loadedUrl\":\"https://tailwindcss.com/plus/ui-blocks?ref=footer\",\"uniqueKey\":\"https://tailwindcss.com/plus/ui-blocks?ref=footer\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"crawlDepth\":1,\"enqueueStrategy\":\"same-domain\",\"state\":4}},\"handledAt\":\"2026-07-10T10:28:09.389Z\"}",
-	"method": "GET",
-	"orderNo": null,
-	"retryCount": 0,
-	"uniqueKey": "https://tailwindcss.com/plus/ui-blocks?ref=footer",
-	"url": "https://tailwindcss.com/plus/ui-blocks?ref=footer"
-}

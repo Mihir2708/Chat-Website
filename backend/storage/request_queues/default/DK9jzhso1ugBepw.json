@@ -1,9 +1,0 @@
-{
-	"id": "DK9jzhso1ugBepw",
-	"json": "{\"id\":\"DK9jzhso1ugBepw\",\"url\":\"https://tailwindcss.com/docs/installation\",\"loadedUrl\":\"https://tailwindcss.com/docs/installation/using-vite\",\"uniqueKey\":\"https://tailwindcss.com/docs/installation\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"crawlDepth\":1,\"enqueueStrategy\":\"same-domain\",\"state\":4}},\"handledAt\":\"2026-07-10T10:28:08.835Z\"}",
-	"method": "GET",
-	"orderNo": null,
-	"retryCount": 0,
-	"uniqueKey": "https://tailwindcss.com/docs/installation",
-	"url": "https://tailwindcss.com/docs/installation"
-}

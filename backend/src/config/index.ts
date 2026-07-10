@@ -13,6 +13,7 @@ interface Config {
   chunkOverlap: number;
   geminiApiKey: string;
   geminiEmbeddingModel: string;
+  geminiChatModel: string;
 }
 
 const config: Config = {
@@ -24,6 +25,7 @@ const config: Config = {
   chunkOverlap: parseInt(process.env.CHUNK_OVERLAP || '200', 10),
   geminiApiKey: process.env.GEMINI_API_KEY as string,
   geminiEmbeddingModel: process.env.GEMINI_EMBEDDING_MODEL || 'text-embedding-004',
+  geminiChatModel: process.env.GEMINI_CHAT_MODEL || 'gemini-1.5-flash',
 };
 
 export default config;

@@ -1,0 +1,9 @@
+{
+	"id": "i22lXXbvxt5qWst",
+	"json": "{\"id\":\"i22lXXbvxt5qWst\",\"url\":\"https://shreegurudev.in/orders\",\"loadedUrl\":\"https://shreegurudev.in/login?from=%2Forders\",\"uniqueKey\":\"https://shreegurudev.in/orders\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"crawlDepth\":1,\"enqueueStrategy\":\"same-domain\",\"state\":4}},\"handledAt\":\"2026-07-10T12:44:54.211Z\"}",
+	"method": "GET",
+	"orderNo": null,
+	"retryCount": 0,
+	"uniqueKey": "https://shreegurudev.in/orders",
+	"url": "https://shreegurudev.in/orders"
+}
