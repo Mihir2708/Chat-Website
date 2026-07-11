@@ -2,7 +2,15 @@
 if (process.env.NODE_ENV === 'production') {
     process.env.CRAWLEE_STORAGE_DIR = '/tmp/crawlee_storage';
 }
-import { CheerioCrawler, EnqueueStrategy, CheerioCrawlingContext } from '@crawlee/cheerio';
+import { CheerioCrawler, EnqueueStrategy, CheerioCrawlingContext, Configuration } from '@crawlee/cheerio';
+import { MemoryStorage } from '@crawlee/memory-storage';
+
+// Configure Crawlee for Serverless Environment
+const crawleeConfig = Configuration.getGlobalConfig();
+crawleeConfig.useStorageClient(new MemoryStorage());
+crawleeConfig.set('systemInfoIntervalMillis', 0); // Disable system info to prevent `ps ENOENT` crash
+crawleeConfig.set('availableMemoryRatio', 0); // Disable memory scaling
+
 import config from '../config';
 import { ApiError } from '../utils/ApiError';
 import { HTTP_STATUS, ERROR_MESSAGES } from '../constants';
