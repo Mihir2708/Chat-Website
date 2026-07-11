@@ -45,8 +45,12 @@ export const crawlUrl = async (startUrl: string): Promise<CrawlResult> => {
   const crawledPages: CrawledPage[] = [];
 
   const crawler = new CheerioCrawler({
+    minConcurrency: 1,
+    maxConcurrency: 1,
     maxRequestsPerCrawl: config.maxCrawlPages,
     requestHandlerTimeoutSecs: 30,
+    useSessionPool: false,
+    persistCookiesPerSession: false,
     ignoreSslErrors: true,
     async requestHandler({ request, $, response, enqueueLinks, log }: CheerioCrawlingContext) {
       const url = request.loadedUrl || request.url;
