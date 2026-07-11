@@ -7,11 +7,16 @@ export const connectDatabase = async (): Promise<void> => {
       throw new Error('MONGODB_URI is not defined in the environment variables');
     }
 
-    const connection = await mongoose.connect(config.mongoUri);
+    // Check if we are already connected to reuse the existing connection in serverless environment
+    if (mongoose.connection.readyState === 1) {
+      return;
+    }
 
+    const connection = await mongoose.connect(config.mongoUri);
     console.log(`MongoDB Connected: ${connection.connection.host}`);
   } catch (error) {
     console.error('Error connecting to MongoDB:', error);
-    process.exit(1);
+    // Throw error instead of process.exit(1) to avoid killing the serverless instance
+    throw error;
   }
 };
