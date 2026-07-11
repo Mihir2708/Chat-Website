@@ -1,3 +1,7 @@
+// Vercel Serverless filesystem is read-only except for /tmp
+if (process.env.NODE_ENV === 'production') {
+    process.env.CRAWLEE_STORAGE_DIR = '/tmp/crawlee_storage';
+}
 import { CheerioCrawler, EnqueueStrategy, CheerioCrawlingContext } from '@crawlee/cheerio';
 import config from '../config';
 import { ApiError } from '../utils/ApiError';
