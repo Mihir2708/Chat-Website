@@ -1,9 +1,0 @@
-{
-	"id": "oUAyyhHNqTo3FEj",
-	"json": "{\"id\":\"oUAyyhHNqTo3FEj\",\"url\":\"https://shreegurudev.in/Collection/new-arrivals\",\"loadedUrl\":\"https://shreegurudev.in/Collection/new-arrivals\",\"uniqueKey\":\"https://shreegurudev.in/Collection/new-arrivals\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"crawlDepth\":1,\"enqueueStrategy\":\"same-domain\",\"state\":4}},\"handledAt\":\"2026-07-11T11:11:41.271Z\"}",
-	"method": "GET",
-	"orderNo": null,
-	"retryCount": 0,
-	"uniqueKey": "https://shreegurudev.in/Collection/new-arrivals",
-	"url": "https://shreegurudev.in/Collection/new-arrivals"
-}
