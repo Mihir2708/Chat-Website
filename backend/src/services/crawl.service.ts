@@ -1,4 +1,4 @@
-import { CheerioCrawler, EnqueueStrategy, CheerioCrawlingContext } from 'crawlee';
+import { CheerioCrawler, EnqueueStrategy, CheerioCrawlingContext } from '@crawlee/cheerio';
 import config from '../config';
 import { ApiError } from '../utils/ApiError';
 import { HTTP_STATUS, ERROR_MESSAGES } from '../constants';
