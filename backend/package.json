@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "nodemon --watch src --ext ts src/server.ts",
     "build": "tsc",
-    "start": "pwd && find . -name server.js",
+    "start": "node dist/src/server.js",
     "vercel-build": "npm run build",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
