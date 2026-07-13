@@ -6,13 +6,15 @@ import { connectDatabase } from './config/database';
 let server: Server;
 
 const startServer = async () => {
-  await connectDatabase();
-  
-  server = app.listen(config.port, () => {
-    console.log(`Server is running in ${config.env} mode on port ${config.port}`);
-  });
-};
 
+  server = app.listen(config.port, "0.0.0.0", () => {
+    console.log(
+      `Server is running in ${config.env} mode on port ${config.port}`
+    );
+  });
+
+  await connectDatabase();
+};
 startServer();
 
 // Handle Uncaught Exceptions
