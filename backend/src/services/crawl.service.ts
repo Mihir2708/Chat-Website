@@ -53,6 +53,9 @@ export const crawlUrl = async (startUrl: string): Promise<CrawlResult> => {
     useSessionPool: false,
     persistCookiesPerSession: false,
     ignoreSslErrors: true,
+    autoscaledPoolOptions: {
+      autoscale: false,
+    },
     async requestHandler({ request, $, response, enqueueLinks, log }: CheerioCrawlingContext) {
       const url = request.loadedUrl || request.url;
       const title = $('title').text().trim() || '';
