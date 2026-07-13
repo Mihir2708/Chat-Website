@@ -83,6 +83,7 @@ export const crawlUrl = async (startUrl: string): Promise<CrawlResult> => {
       log.error(`Request ${request.url} failed too many times.`);
     },
   }, new Configuration({
+    systemInfoIntervalMillis: 0,
     storageClient: new MemoryStorage({
       persistStorage: false,
       writeMetadata: false,
