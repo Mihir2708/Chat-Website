@@ -28,9 +28,15 @@ export interface CrawlResult {
 const normalizeUrl = (url: string): string => {
   try {
     const parsedUrl = new URL(url);
+    if (parsedUrl.protocol !== 'http:' && parsedUrl.protocol !== 'https:') {
+      throw new ApiError(HTTP_STATUS.BAD_REQUEST, ERROR_MESSAGES.INVALID_PROTOCOL);
+    }
     parsedUrl.hash = '';
     return parsedUrl.href.replace(/\/$/, '');
-  } catch {
+  } catch (error: any) {
+    if (error instanceof ApiError) {
+      throw error;
+    }
     throw new ApiError(HTTP_STATUS.BAD_REQUEST, ERROR_MESSAGES.INVALID_URL);
   }
 };

@@ -17,6 +17,7 @@ export const ERROR_MESSAGES = {
   ROBOTS_RESTRICTION: 'Crawling restricted by robots.txt',
   EMPTY_WEBSITE: 'Website is empty or contains no valid pages',
   INVALID_URL: 'Invalid URL provided',
+  INVALID_PROTOCOL: 'Invalid URL protocol. Only http and https are supported.',
   CRAWL_FAILED: 'Failed to crawl the website',
 };
 
