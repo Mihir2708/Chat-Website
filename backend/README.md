@@ -56,7 +56,7 @@ npm run dev
 
 ### Crawling Strategy
 We utilize **Crawlee's `CheerioCrawler`** for lightweight, fast, and scalable  website crawling.
-- **Scoping**: The crawler is strictly limited to the base domain using `EnqueueStrategy.SameDomain`, ensuring it doesn't wander off to external sites.
+- **Scoping**: The crawler is strictly limited to the base domain using ` EnqueueStrategy.SameDomain`, ensuring it doesn't wander off to external sites.
 - **Resource Filtering**: We ignore media files, documents, and assets by aggressively filtering common extensions (e.g., `.png`, `.jpg`, `.pdf`, `.mp4`, `.css`, `.js`).
 - **Extraction**: As pages are discovered, the HTML is parsed using Cheerio to strip away markup and extract pure textual content .
 
