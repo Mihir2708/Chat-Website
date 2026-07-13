@@ -42,7 +42,7 @@ export class VectorStoreService {
             embedding: chunk.embedding,
           }
         },
-        { upsert: true, new: true }
+        { upsert: true, returnDocument: 'after' }
       );
     } catch (error: any) {
       console.error(`[VectorStoreService] Error storing chunk ${chunk.chunkIndex} for page ${chunk.pageId}:`, error);

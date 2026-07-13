@@ -97,7 +97,7 @@ export const crawlUrl = async (startUrl: string): Promise<CrawlResult> => {
     if (error.message && error.message.includes('timeout')) {
       throw new ApiError(HTTP_STATUS.INTERNAL_SERVER_ERROR, ERROR_MESSAGES.CRAWL_TIMEOUT);
     }
-    throw new ApiError(HTTP_STATUS.INTERNAL_SERVER_ERROR, ERROR_MESSAGES.CRAWL_FAILED);
+    throw new ApiError(HTTP_STATUS.INTERNAL_SERVER_ERROR, `Crawl failed: ${error.message}`);
   }
 
   if (crawledPages.length === 0) {
