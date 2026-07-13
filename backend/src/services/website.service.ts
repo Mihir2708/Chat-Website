@@ -13,7 +13,7 @@ export class WebsiteService {
           status: 'crawling',
         }
       },
-      { new: true, upsert: true }
+      { returnDocument: 'after', upsert: true }
     );
     return website;
   }
@@ -40,7 +40,7 @@ export class WebsiteService {
     return await Website.findByIdAndUpdate(
       websiteId,
       { $set: updateData },
-      { new: true }
+      { returnDocument: 'after' }
     );
   }
 }

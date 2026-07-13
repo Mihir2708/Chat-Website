@@ -1,4 +1,5 @@
-import { CheerioCrawler, EnqueueStrategy, CheerioCrawlingContext } from 'crawlee';
+import { CheerioCrawler, EnqueueStrategy, CheerioCrawlingContext, Configuration } from 'crawlee';
+import { MemoryStorage } from '@crawlee/memory-storage';
 import config from '../config';
 import { ApiError } from '../utils/ApiError';
 import { HTTP_STATUS, ERROR_MESSAGES } from '../constants';
@@ -81,11 +82,17 @@ export const crawlUrl = async (startUrl: string): Promise<CrawlResult> => {
     failedRequestHandler({ request, log }) {
       log.error(`Request ${request.url} failed too many times.`);
     },
-  });
+  }, new Configuration({
+    storageClient: new MemoryStorage({
+      persistStorage: false,
+      writeMetadata: false,
+    }),
+  }));
 
   try {
     await crawler.run([normalizedStartUrl]);
   } catch (error: any) {
+    console.error(`[CrawlService] Crawler run failed for website ${websiteId}:`, error);
     await WebsiteService.finalizeWebsiteCrawl(websiteId, 'failed');
     if (error.message && error.message.includes('timeout')) {
       throw new ApiError(HTTP_STATUS.INTERNAL_SERVER_ERROR, ERROR_MESSAGES.CRAWL_TIMEOUT);

@@ -24,6 +24,9 @@ export const errorMiddleware = (
     message = err.message;
   }
 
+  // Log the actual error to the console for debugging
+  console.error('[GlobalErrorHandler]', err);
+
   const response: any = {
     success: false,
     message,
