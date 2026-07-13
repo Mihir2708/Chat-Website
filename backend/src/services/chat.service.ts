@@ -74,7 +74,7 @@ export class ChatService {
 
       const result = await model.generateContent(prompt);
       let answer = result.response.text();
-      
+
       // Clean up any newline characters from the response to ensure plain, continuous text
       if (answer) {
         answer = answer.replace(/\n|\r/g, ' ').replace(/\s+/g, ' ').trim();
@@ -84,22 +84,17 @@ export class ChatService {
         throw new Error('Gemini returned an empty response.');
       }
 
-      // 6. Map the sources and remove duplicate URLs if the answer is not the fallback response
+      // 6. Map the sources and remove duplicate URLs
       const uniqueUrls = new Set<string>();
       const sources: ChatSource[] = [];
-      
-      const fallbackResponse = "I couldn't find that information in the provided website.";
-      const isFallback = answer.includes(fallbackResponse);
 
-      if (!isFallback) {
-        for (const chunk of retrievedChunks) {
-          if (!uniqueUrls.has(chunk.url)) {
-            uniqueUrls.add(chunk.url);
-            sources.push({
-              url: chunk.url,
-              chunkIndex: chunk.chunkIndex
-            });
-          }
+      for (const chunk of retrievedChunks) {
+        if (!uniqueUrls.has(chunk.url)) {
+          uniqueUrls.add(chunk.url);
+          sources.push({
+            url: chunk.url,
+            chunkIndex: chunk.chunkIndex
+          });
         }
       }
 
